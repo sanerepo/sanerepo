@@ -37,6 +37,7 @@ const rootFilesToSet = [
   ".gitignore",
   ".husky/pre-commit",
   ".lintstagedrc",
+  ".monorepolint.config.mjs",
   ".prettierignore",
   ".prettierrc",
   "pnpm-workspace.yaml",
