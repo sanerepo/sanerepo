@@ -265,7 +265,7 @@ const config: Config = {
             outDir: "lib",
             rootDir: "src",
           },
-          exclude: ["node_modules", "lib"],
+          exclude: ["node_modules", "lib", "dist"],
         },
       },
     }),
