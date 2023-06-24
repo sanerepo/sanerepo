@@ -1,4 +1,4 @@
 {
-    "esmOnly": ["@sanerepo/mrl"],
-    "cjsOnly": ["@sanerepo/eslint-config"]
+  "esmOnly": ["@sanerepo/mrl"],
+  "cjsOnly": ["@sanerepo/eslint-config"]
 }
