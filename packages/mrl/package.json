@@ -14,7 +14,8 @@
   "files": [
     "bin",
     "lib",
-    "files"
+    "files",
+    "templates"
   ],
   "scripts": {
     "check-typescript": "tsc --build",
