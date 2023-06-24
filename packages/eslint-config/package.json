@@ -1,5 +1,6 @@
 {
   "name": "@sanerepo/eslint-config",
+  "version": "0.0.0",
   "type": "commonjs",
   "exports": {
     ".": {
