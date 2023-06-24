@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["transpile-typescript", "check-typescript"],
+      "inputs": ["src/**/*", "tsconfig.json"],
+      "outputs": []
+    },
+    "clean": {},
+    "transpile-typescript": {
+      "dependsOn": ["^transpile-typescript"],
+      "inputs": ["src/**/*", "../../tsup.config.cjs", "tsconfig.json", "../../tsconfig.base.json"],
+      "outputs": ["build/**"]
+    },
+    "check-typescript": {
+      "dependsOn": ["^check-typescript"],
+      "inputs": ["src/**/*", "tsconfig.json", "../../tsconfig.base.json"],
+      "outputs": ["build/types/**"]
+    },
+    "test": {
+      "dependsOn": ["transpile-typescript", "check-typescript"],
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "tsconfig.json", "../../jest.config.base.js"]
+    },
+    "lint": {
+      "outputs": [],
+      "inputs": ["package.json", "src/**/*", "../../.eslintrc.cjs"]
+    },
+    "check": {
+      "dependsOn": ["build", "test", "lint"],
+      "outputs": []
+    },
+    "//#dev-mode": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev-mode": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

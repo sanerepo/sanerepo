@@ -1,0 +1,11 @@
+node_modules/
+.turbo/
+lib/
+dist/
+logs/
+**/src/**/*.log
+**/src/**/*.log.json
+tsconfig.tsbuildinfo
+/config
+.log
+pnpm-publish-summary.json

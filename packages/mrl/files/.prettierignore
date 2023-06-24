@@ -1,0 +1,7 @@
+pnpm-lock.yaml
+/logs/
+/packages/*/lib/
+*.log.json
+tsconfig.json
+/.log/
+pnpm-publish-summary.json

@@ -1,0 +1,42 @@
+{
+  "name": "@sanerepo/mrl",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Eric Anderson",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "bin",
+    "lib",
+    "files"
+  ],
+  "scripts": {
+    "check-typescript": "tsc --build",
+    "clean": "rm -rf lib dist tsconfig.tsbuildinfo",
+    "deepClean": "rm -rf lib dist tsconfig.tsbuildinfo",
+    "dev-mode": "pnpm transpile-typescript --watch",
+    "prepublishOnly": "pnpm check-typescript && pnpm transpile-typescript",
+    "test": "echo \"Error: no test specified\"",
+    "transpile-typescript": "tsup --format esm"
+  },
+  "dependencies": {
+    "@monorepolint/config": "^0.5.0-alpha.108",
+    "@monorepolint/rules": "^0.5.0-alpha.108",
+    "@monorepolint/utils": "^0.5.0-alpha.108"
+  },
+  "devDependencies": {
+    "tslib": "^2.5.3",
+    "tsup": "^7.0.0",
+    "typescript": "^5.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": []
+}
