@@ -1,0 +1,4 @@
+{
+  "*.{ts,tsx}": ["eslint --fix", "prettier --ignore-unknown --write"],
+  "package.json": ["mrl check --paths", "prettier --ignore-unknown --write"]
+}

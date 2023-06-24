@@ -33,13 +33,15 @@ const saneRepoConfig: SaneRepoConfig =
   host.readJson(path.join(workspaceDir, ".sanerepo.json")) ?? {};
 
 const rootFilesToSet = [
+  ".eslintrc.cjs",
+  ".gitignore",
+  ".husky/pre-commit",
+  ".lintstagedrc",
   ".prettierignore",
   ".prettierrc",
   "pnpm-workspace.yaml",
   "tsconfig.base.json",
-  ".eslintrc.cjs",
   "tsup.config.js",
-  ".gitignore",
   "turbo.json",
 ];
 
@@ -202,6 +204,37 @@ const config: Config = {
         ]
       : []),
 
+    // Everyone rules
+
+    requireDependency({
+      includeWorkspaceRoot: true,
+      includePackages: [rootPackageName],
+      options: {
+        devDependencies: {
+          "@changesets/cli": "^2.26.1",
+          "@monorepolint/cli": "^0.5.0-alpha.108",
+          "@swc/jest": "^0.2.26",
+          "@typescript-eslint/eslint-plugin": "^5.60.0",
+          "@typescript-eslint/parser": "^5.60.0",
+          "chokidar-cli": "^3.0.0",
+          concurrently: "^8.2.0",
+          eslint: "^8.43.0",
+          "eslint-import-resolver-typescript": "^3.5.5",
+          "eslint-plugin-import": "^2.27.5",
+          "eslint-plugin-unused-imports": "^2.0.0",
+          husky: "^8.0.3",
+          jest: "^29.5.0",
+          "lint-staged": "^13.2.2",
+          prettier: "^2.8.8",
+          "ts-jest": "^29.1.0",
+          tslib: "^2.5.3",
+          tsup: "^7.0.0",
+          turbo: "^1.10.5",
+          typescript: "^5.1.3",
+        },
+      },
+    }),
+
     packageScript({
       includeWorkspaceRoot: false,
       options: {
@@ -241,8 +274,6 @@ const config: Config = {
         },
       },
     }),
-
-    // Everyone rules
 
     packageOrder({ includeWorkspaceRoot: true }),
 
