@@ -11,6 +11,10 @@
       "import": "./dist/index.js"
     }
   },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=8"
+  },
   "files": [
     "bin",
     "lib",

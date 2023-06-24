@@ -213,6 +213,18 @@ const config: Config = {
 
     // Everyone rules
 
+    packageEntry({
+      includePackages: saneRepoConfig.esmOnly,
+      options: {
+        entries: {
+          engines: {
+            node: ">=16",
+            pnpm: ">=8",
+          },
+        },
+      },
+    }),
+
     requireDependency({
       includeWorkspaceRoot: true,
       includePackages: [rootPackageName],
