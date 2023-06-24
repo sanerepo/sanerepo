@@ -84,8 +84,10 @@ const config: Config = {
       includePackages: [rootPackageName],
       options: {
         scripts: {
+          build: "turbo build",
           "check-eslint": "eslint packages/*/src",
-          "check-jest": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest",
+          "check-jest":
+            "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --passWithNoTests",
           "check-prettier": "prettier --check .",
           "check-typescript": "tsc --build --pretty packages/*/tsconfig.json",
           "ci:publish-snapshot":
@@ -95,7 +97,7 @@ const config: Config = {
           "debug:test":
             "NODE_OPTIONS='--experimental-vm-modules --no-warnings --inspect-brk' jest --runInBand --detectOpenHandles",
           "dev-mode":
-            "concurrently -c auto --color --names 'ts    ,eslint,jest  ' 'npm:check-typescript --preserveWatchOutput --watch' npm:watch-eslint 'npm:check-jest --watch --passWithNoTests'",
+            "concurrently -c auto --color --names 'ts    ,eslint,jest  ' 'npm:watch-typescript' 'npm:watch-eslint' npm:watch-jest",
           "fix-eslint": "eslint packages/*/src --fix",
           "fix-prettier": "prettier --write .",
           precommit: "pnpm fix-eslint && pnpm fix-prettier",
@@ -104,6 +106,8 @@ const config: Config = {
           test: "pnpm check-eslint && pnpm check-jest && pnpm check-prettier && pnpm check-typescript",
           "watch-eslint":
             "pnpm check-eslint; chokidar 'packages/*/src/**.ts' 'packages/*/src/**.tsx' -c eslint",
+          "watch-jest": "pnpm check-jest --watch",
+          "watch-typescript": "pnpm check-typescript --preserveWatchOutput --watch",
         },
       },
     }),
