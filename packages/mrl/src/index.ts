@@ -63,7 +63,7 @@ const config: Config = {
         file: "jest.config.cjs",
         generator: async (context: Context) => {
           const templateFilePath = url.fileURLToPath(
-            new URL(`../files/jest.config.cjs`, import.meta.url)
+            new URL(`../templates/jest.config.cjs`, import.meta.url)
           );
           const templateContents = context
             .getWorkspaceContext()
