@@ -34,6 +34,8 @@ const saneRepoConfig: SaneRepoConfig =
 
 const rootFilesToSet = [
   ".eslintrc.cjs",
+  ".github/workflows/release.yml",
+  ".github/workflows/test.yml",
   ".gitignore",
   ".husky/pre-commit",
   ".lintstagedrc",
