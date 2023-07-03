@@ -36,7 +36,7 @@
     "@monorepolint/utils": "^0.5.0-alpha.108"
   },
   "devDependencies": {
-    "tslib": "^2.5.3",
+    "tslib": "^2.6.0",
     "tsup": "^7.0.0",
     "typescript": "^5.1.3"
   },
